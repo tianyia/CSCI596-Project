@@ -43,6 +43,6 @@ def model_fn(features, laberls, mode, params):
 
 ----------
 
-## The Final Proposal
+## More
 
 TBA.
