@@ -1,11 +1,16 @@
 ## CSCI 596 Final Project: Google Cloud TPU
 
-### Why choose Cloud TPU (Tensor Processing Unit)?
+Tianyi An, Yiming Wang
+
+### 1.Introduction
+
+Tranining time of machine learning model is important to the efficiency of related research and business deployment. We are hoping to utilize Google Cloud TPU for training of different machine learning models, and compare their performances with training on GPU.
+
+### 2.Why choose Cloud TPU (Tensor Processing Unit)?
 
 * A new tool for machine learning : easy to learn, no need to setup or download locally
 * Higher performance on training models for machine learning 
-
-### Why TPU can be better?
+* Designed as a matrix processor specifically for machine learning
 
 - CPU:
 
@@ -19,7 +24,8 @@
 
   ![](https://cloud.google.com/tpu/docs/images/image4_5pfb45w.gif)
 
-### Create a Model with TPU
+### 3.Details
+#### Create a Model with TPU
 
 ```python
 def model_fn(features, laberls, mode, params):
@@ -35,7 +41,7 @@ def model_fn(features, laberls, mode, params):
     return tpu_estimator.EstimatorSpec(mode=mode,loss=loss,train_op=train_op)
 ```
 
-### How to use it?
+#### How to use it?
 
 * TBA
 
