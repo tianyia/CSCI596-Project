@@ -27,21 +27,31 @@ Tranining time of machine learning model is important to the efficiency of relat
 ### 3.Details
 
 #### How to use it?
+- Create project and a Cloud Storage bucket
+```
+export PROJECT_ID=project-id
 
+gcloud config set project ${PROJECT_ID}
+
+gcloud beta services identity create --service tpu.googleapis.com --project $PROJECT_ID
+
+gsutil mb -p ${PROJECT_ID} -c standard -l us-central1 gs://bucket-name
+```
 - Create a Cloud TPU VM
 ```
-gcloud alpha compute tpus tpu-vm create tpu-name \
---zone=europe-west4-a \
+gcloud alpha compute tpus tpu-vm create mnist-tutorial \
+--zone=us-central1-b \
 --accelerator-type=v3-8 \
---version=v2-alpha
+--version=tpu-vm-tf-2.7.0
 ```
 - Connect to your Cloud TPU VM
 ```
-gcloud alpha compute tpus tpu-vm ssh tpu-name \
-  --zone europe-west4-a
+gcloud alpha compute tpus tpu-vm ssh mnist-tutorial --zone=us-central1-b
 ```
 - Install dependencies and configure the environment
 ```
+export TPU_NAME=local
+
 pip3 install -r /usr/share/tpu/models/official/requirements.txt
 ```
 - Prepare datasets
