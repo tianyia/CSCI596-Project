@@ -28,25 +28,17 @@ Tranining time of machine learning model is important to the efficiency of relat
 
 #### How to use it?
 
-Example: [Running MNIST on Cloud TPU (TF 2.x)](https://cloud.google.com/tpu/docs/tutorials/mnist-2.x)
-- Set up Cloud Storage bucket, VM, and Cloud TPU resources
+- Create a Cloud TPU VM
 ```
-export PROJECT_ID=project-id
-
-gcloud config set project ${PROJECT_ID}
-
-gcloud beta services identity create --service tpu.googleapis.com --project $PROJECT_ID
-
-gsutil mb -p ${PROJECT_ID} -c standard -l us-central1 gs://bucket-name
-
-gcloud alpha compute tpus tpu-vm create mnist-tutorial \
---zone=us-central1-b \
+gcloud alpha compute tpus tpu-vm create tpu-name \
+--zone=europe-west4-a \
 --accelerator-type=v3-8 \
---version=tpu-vm-tf-2.7.0
-
-gcloud alpha compute tpus tpu-vm ssh mnist-tutorial --zone=us-central1-b
-
-export TPU_NAME=local
+--version=v2-alpha
+```
+- Connect to your Cloud TPU VM
+```
+gcloud alpha compute tpus tpu-vm ssh tpu-name \
+  --zone europe-west4-a
 ```
 - Install dependencies and configure the environment
 ```
@@ -73,6 +65,11 @@ python3 mnist_main.py \
   --download
 ```
 
+Reference: 
+
+[Cloud TPU TensorFlow Quickstart](https://cloud.google.com/tpu/docs/tensorflow-quickstart-tpu-vm#tpu-vm)
+
+[Running MNIST on Cloud TPU (TF 2.x)](https://cloud.google.com/tpu/docs/tutorials/mnist-2.x)
 
 
 ----------
