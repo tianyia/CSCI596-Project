@@ -46,6 +46,7 @@ def model_fn(features, laberls, mode, params):
 For TensorFlow
 * Set up Cloud Storage bucket, VM, and Cloud TPU resources
 * Install dependencies and configure the environment
+* Prepare datasets
 * Train the model
 
 
