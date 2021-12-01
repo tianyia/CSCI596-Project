@@ -43,7 +43,9 @@ def model_fn(features, laberls, mode, params):
 
 #### How to use it?
 
-* TBA
+* Set up Cloud Storage bucket and a Compute Engine VM
+* Install dependencies
+* Train the model
 
 
 
