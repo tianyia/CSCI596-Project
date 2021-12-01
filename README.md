@@ -79,5 +79,5 @@ python3 mnist_main.py \
 
 ### 4.Next step
 
-Train different models on TPU and GPU, gather data like training time and dataset size
-Evaluate training performance based on collected data
+* Train different models on TPU and GPU, gather data like training time and dataset size
+* Evaluate training performance based on collected data
