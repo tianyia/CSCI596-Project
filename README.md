@@ -28,11 +28,50 @@ Tranining time of machine learning model is important to the efficiency of relat
 
 #### How to use it?
 
-For TensorFlow
-* Set up Cloud Storage bucket, VM, and Cloud TPU resources
-* Install dependencies and configure the environment
-* Prepare datasets
-* Train the model
+Example: Running MNIST on Cloud TPU (TF 2.x)
+- Set up Cloud Storage bucket, VM, and Cloud TPU resources
+```
+export PROJECT_ID=project-id
+
+gcloud config set project ${PROJECT_ID}
+
+gcloud beta services identity create --service tpu.googleapis.com --project $PROJECT_ID
+
+gsutil mb -p ${PROJECT_ID} -c standard -l us-central1 gs://bucket-name
+
+gcloud alpha compute tpus tpu-vm create mnist-tutorial \
+--zone=us-central1-b \
+--accelerator-type=v3-8 \
+--version=tpu-vm-tf-2.7.0
+
+gcloud alpha compute tpus tpu-vm ssh mnist-tutorial --zone=us-central1-b
+
+export TPU_NAME=local
+```
+- Install dependencies and configure the environment
+```
+pip3 install -r /usr/share/tpu/models/official/requirements.txt
+```
+- Prepare datasets
+```
+export STORAGE_BUCKET=gs://bucket-name
+export MODEL_DIR=${STORAGE_BUCKET}/mnist
+export DATA_DIR=${STORAGE_BUCKET}/data
+```
+- Train the model
+```
+export PYTHONPATH="${PYTHONPATH}:/usr/share/tpu/models"
+
+cd /usr/share/tpu/models/official/vision/image_classification
+
+python3 mnist_main.py \
+  --tpu=${TPU_NAME} \
+  --model_dir=${MODEL_DIR} \
+  --data_dir=${DATA_DIR} \
+  --train_epochs=10 \
+  --distribution_strategy=tpu \
+  --download
+```
 
 
 
