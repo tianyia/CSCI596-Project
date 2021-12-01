@@ -28,7 +28,7 @@ Tranining time of machine learning model is important to the efficiency of relat
 
 #### How to use it?
 
-Example: Running MNIST on Cloud TPU (TF 2.x)
+Example: [Running MNIST on Cloud TPU (TF 2.x)](https://cloud.google.com/tpu/docs/tutorials/mnist-2.x)
 - Set up Cloud Storage bucket, VM, and Cloud TPU resources
 ```
 export PROJECT_ID=project-id
