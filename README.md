@@ -44,20 +44,7 @@ def model_fn(features, laberls, mode, params):
 #### How to use it?
 
 For TensorFlow
-* Set up Cloud Storage bucket and a Compute Engine VM
-```
-export PROJECT_ID=project-id
-gcloud config set project ${PROJECT_ID}
-gcloud beta services identity create --service tpu.googleapis.com --project $PROJECT_ID
-gsutil mb -p ${PROJECT_ID} -c standard -l us-central1 gs://bucket-name
-gcloud alpha compute tpus tpu-vm create mnist-tutorial \
---zone=us-central1-b \
---accelerator-type=v3-8 \
---version=tpu-vm-tf-2.7.0
-gcloud alpha compute tpus tpu-vm ssh mnist-tutorial --zone=us-central1-b
-export TPU_NAME=local
-pip3 install -r /usr/share/tpu/models/official/requirements.txt
-```
+* Set up Cloud Storage bucket, VM, and Cloud TPU resources
 * Install dependencies and configure the environment
 * Train the model
 
