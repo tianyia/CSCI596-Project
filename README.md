@@ -83,6 +83,13 @@ Reference:
 
 Result of the MNIST on Cloud TPU:
 ![result](https://github.com/tianyia/CSCI596-Project/blob/main/3.png)
+
+Result of the ResNet on Cloud TPU:
+![result](https://github.com/tianyia/CSCI596-Project/blob/main/ResNet1.jpg)
+
+![result](https://github.com/tianyia/CSCI596-Project/blob/main/ResNet2.jpg)
+
+![result](https://github.com/tianyia/CSCI596-Project/blob/main/ResNet3.jpg)
 ----------
 
 ### 4.Next step
