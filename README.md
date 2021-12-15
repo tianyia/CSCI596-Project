@@ -81,6 +81,7 @@ Reference:
 
 [Running MNIST on Cloud TPU (TF 2.x)](https://cloud.google.com/tpu/docs/tutorials/mnist-2.x)
 
+Result of the MNIST on Cloud TPU:
 ![result](https://github.com/tianyia/CSCI596-Project/blob/main/3.png)
 ----------
 
